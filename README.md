@@ -1,6 +1,6 @@
 # 🧠 My Deep Dive into Advanced Information Retrieval
 
-> *"Understanding how to find meaning in text — from vector math to production RAG systems."*
+> *"From vector math to production RAG — a complete learning journey through similarity search and retrieval systems."*
 
 ---
 
@@ -8,7 +8,7 @@
 
 **In the age of AI, retrieval is everything.** Whether it's semantic search, RAG pipelines, or recommendation engines, the ability to efficiently find semantically similar information is the backbone of modern AI applications.
 
-This repository documents my **personal learning journey** through the mathematical foundations, practical implementations, and advanced techniques of **semantic search and retrieval-augmented generation (RAG)** . Instead of just reading theory, I built everything from scratch — starting with manual vector calculations and progressing to production-grade retrieval systems.
+This repository documents my **personal learning journey** through the mathematical foundations, practical implementations, and advanced techniques of **semantic search and retrieval-augmented generation (RAG)** . Instead of just reading theory, I built everything from scratch — starting with manual vector calculations and progressing to production-grade retrieval systems using LangChain and LlamaIndex.
 
 **What I discovered:** Simple vector search isn't enough for real-world applications. The real challenge lies in combining multiple retrieval strategies, preserving context, and making systems intelligent enough to understand both meaning and metadata.
 
@@ -16,7 +16,7 @@ This repository documents my **personal learning journey** through the mathemati
 
 ## 🎯 What I Explored
 
-### 1. The Math — Building Similarity from Scratch
+### 1. Similarity Search by Hand — The Math
 **Before using any library, I needed to understand what was happening under the hood.**
 
 I implemented similarity metrics manually:
@@ -29,19 +29,7 @@ I implemented similarity metrics manually:
 
 ---
 
-### 2. Scaling Up — Semantic Search with FAISS
-**From single vectors to thousands of documents.**
-
-I built a complete semantic search engine using the 20 Newsgroups dataset (~20,000 documents):
-- Preprocessed real-world text data (removing email headers, punctuation, normalizing)
-- Generated embeddings using the **Universal Sentence Encoder**
-- Indexed everything with **FAISS** for fast similarity search
-
-**The Result:** A search engine that understands "motorcycle" and finds relevant posts about buying a first bike, even when the exact word "motorcycle" appears only once or twice in the text.
-
----
-
-### 3. LangChain Retrievers — Smarter Than Basic Search
+### 2. Build a Smarter Search with LangChain — Advanced Retrievers
 **Simple vector search wasn't enough for real-world scenarios.**
 
 I explored LangChain's retriever ecosystem to handle common challenges:
@@ -58,7 +46,7 @@ I explored LangChain's retriever ecosystem to handle common challenges:
 
 ---
 
-### 4. LlamaIndex Advanced Retrievers — The Next Level
+### 3. Explore Advanced Retrievers in LlamaIndex — The Next Level
 **This is where things got really interesting.**
 
 I explored LlamaIndex's advanced retrieval techniques, including sophisticated fusion methods:
@@ -80,58 +68,6 @@ This was the most exciting discovery. It combines results from multiple retrieve
 | **Distribution-Based** | Statistical normalization (z-score) | Most sophisticated, handles outliers |
 
 **My Takeaway:** Different problems require different retrieval strategies. The power lies in knowing when to use each — and when to combine them.
-
----
-
-### 5. Building a Production RAG Pipeline
-**The final challenge: putting everything together.**
-
-I built a production-ready RAG pipeline that:
-- Routes queries to the right retriever based on question type
-- Retrieves documents from multiple sources
-- Generates responses using IBM watsonx.ai (Granite-4-H-Small)
-- Evaluates pipeline performance with success metrics
-
-**The Evaluation:** The pipeline achieved 100% success rate on test queries, with automatic query routing working effectively for semantic, comprehensive, and specific question types.
-
----
-
-## 🛠️ Tech Stack Used
-
-| Category | Tools |
-|----------|-------|
-| **Vector Databases** | ChromaDB, FAISS |
-| **Embeddings** | Universal Sentence Encoder, Sentence Transformers (`all-MiniLM-L6-v2`), HuggingFace (`BAAI/bge-small-en-v1.5`) |
-| **Frameworks** | LangChain, LlamaIndex |
-| **LLMs** | IBM watsonx.ai (Granite-4-H-Small, Mistral) |
-| **Math** | NumPy, SciPy, PyTorch |
-| **Frontend** | Gradio |
-| **Language** | Python 3.11+ |
-
----
-
-## 📂 Repository Structure
-
-```
-advanced-retrieval-learning/
-│
-├── 📓 01-similarity-search-by-hand/          # The math, built from scratch
-│   └── Similarity Search by Hand.ipynb
-│
-├── 📓 02-semantic-search-with-faiss/         # Scaling up to thousands of docs
-│   └── Semantic Similarity with FAISS.ipynb
-│
-├── 📓 03-langchain-retrievers/               # Smarter retrieval with LangChain
-│   └── Build a Smarter Search with LangChain Context Retrieval.ipynb
-│
-├── 📓 04-llamaindex-advanced-retrievers/     # Advanced techniques & fusion
-│   └── Explore Advanced Retrievers in LlamaIndex.ipynb
-│
-├── 🛒 grocery-similarity-search/             # Practical Gradio app
-│   └── similarity_search.py
-│
-└── 📖 README.md
-```
 
 ---
 
@@ -165,20 +101,40 @@ advanced-retrieval-learning/
 
 ---
 
-## 💡 Real-World Applications
+## 🛠️ Tech Stack Used
 
-| What I Built | Could Be Used For |
-|--------------|-------------------|
-| Manual similarity metrics | Understanding retrieval math |
-| FAISS search engine | Content discovery, recommendation |
-| LangChain retrievers | Enterprise search, customer support |
-| LlamaIndex advanced retrievers | Research papers, legal documents |
-| Query Fusion | Smart search engines |
-| Production RAG pipeline | AI assistants, chatbots |
+| Category | Tools |
+|----------|-------|
+| **Vector Databases** | ChromaDB, FAISS |
+| **Embeddings** | Universal Sentence Encoder, Sentence Transformers (`all-MiniLM-L6-v2`), HuggingFace (`BAAI/bge-small-en-v1.5`) |
+| **Frameworks** | LangChain, LlamaIndex |
+| **LLMs** | IBM watsonx.ai (Granite-4-H-Small, Mistral) |
+| **Math** | NumPy, SciPy, PyTorch |
+| **Frontend** | Gradio |
+| **Language** | Python 3.11+ |
 
 ---
 
-## 🚀 What I'm Building Next
+## 📂 What's Inside
+
+```
+advanced-retrieval-learning/
+│
+├── 📓 01-similarity-search-by-hand/
+│   └── Similarity Search by Hand.ipynb          # The math — built from scratch
+│
+├── 📓 02-langchain-retrievers/
+│   └── Build a Smarter Search with LangChain Context Retrieval.ipynb   # LangChain retrievers
+│
+├── 📓 03-llamaindex-advanced-retrievers/
+│   └── Explore Advanced Retrievers in LlamaIndex.ipynb   # Advanced techniques & fusion
+│
+└── 📖 README.md
+```
+
+---
+
+## 💡 What I'm Building Next
 
 - **Multi-modal retrieval** — combining text, image, and audio search
 - **Real-time RAG** — streaming retrieval for interactive applications
